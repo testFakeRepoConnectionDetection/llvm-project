@@ -1,0 +1,26 @@
+# Production values for the llvm-build-gateway chart.
+replicaCount: 3
+image:
+  repository: registry.corp.internal/platform/llvm-build-gateway
+  tag: 1.4.2-corp.1
+resources:
+  limits:
+    cpu: "4"
+    memory: 8Gi
+env:
+  # Calendars Mapping Service EMEA
+  - name: CALENDARS_MAPPING_SERVICE_EMEA_URL
+    value: https://calendars-mapping-service-emea.svc.corp.internal/api/v1
+  # Commodities Trade Blotter APAC
+  - name: COMMODITIES_TRADE_BLOTTER_APAC_URL
+    value: https://commodities-trade-blotter-apac.svc.corp.internal/api/v1
+  - name: TREASURY_FUNDING_PLANNER_AMER_URL
+    value: https://treasury-funding-planner-amer.svc.corp.internal/api/v1
+  # Instruments Distribution Service EMEA
+  - name: INSTRUMENTS_DISTRIBUTION_SERVICE_EMEA_URL
+    value: https://instruments-distribution-service-emea.svc.corp.internal/api/v1
+ingress:
+  enabled: true
+  host: llvm-build.corp.internal
+  allowedSourceNamespaces:
+    - data-platform-directory-service-apac

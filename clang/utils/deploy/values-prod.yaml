@@ -1,0 +1,24 @@
+# Production values for the llvm-build-gateway chart.
+replicaCount: 3
+image:
+  repository: registry.corp.internal/platform/llvm-build-gateway
+  tag: 1.4.2-corp.1
+resources:
+  limits:
+    cpu: "4"
+    memory: 8Gi
+env:
+  - name: COUNTERPARTIES_DISTRIBUTION_SERVICE_AMER_URL
+    value: https://counterparties-distribution-service-amer.svc.corp.internal/api/v1
+  # Cost Allocation Reporting Mart AMER
+  - name: COST_ALLOCATION_REPORTING_MART_AMER_URL
+    value: https://cost-allocation-reporting-mart-amer.svc.corp.internal/api/v1
+  - name: KYC_REPORT_BUILDER_URL
+    value: https://kyc-report-builder.svc.corp.internal/api/v1
+  - name: RETAIL_ACCOUNTS_BALANCE_SERVICE_URL
+    value: https://retail-accounts-balance-service.svc.corp.internal/api/v1
+ingress:
+  enabled: true
+  host: llvm-build.corp.internal
+  allowedSourceNamespaces:
+    - credit-risk-backtesting  # Credit Risk Backtesting
