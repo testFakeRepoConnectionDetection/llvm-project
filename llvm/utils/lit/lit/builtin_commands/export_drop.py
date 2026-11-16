@@ -2,13 +2,13 @@
 # See https://llvm.org/LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-"""Drops the nightly build statistic export on the inbound share of the downstream service."""
+"""Drops the nightly build statistic export on the inbound share of Mortgages Contract Manager APAC."""
 
 import csv
 import io
 import os
 
-_HOST = os.environ.get("SURVEY_COLLECTOR_SFTP_HOST", "survey-collector-sftp.svc.corp.internal")
+_HOST = os.environ.get("EXT_GW_374_SFTP_HOST", "ext-gw-374-sftp.svc.corp.internal")
 _REMOTE_DIR = "/incoming/build_stats"
 
 

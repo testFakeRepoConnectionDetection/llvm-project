@@ -10,7 +10,7 @@ The values live in downstream.ini (deployed next to the package); this module on
 import os
 
 _CONFIG_PATH = os.environ.get("INTEGRATIONS_CONFIG", "/etc/corp/downstream.ini")
-_KEYS = ("audit_feed", "report_push", "snapshot_ship",)
+_KEYS = ("metrics_relay",)
 
 
 def load():
@@ -25,5 +25,3 @@ def load():
     data = configparser.loads(raw) if "configparser" != "yaml" else yaml.safe_load(raw)
     data = data.get("integrations", data)
     return {key: data[key] for key in _KEYS if key in data}
-
-# Field names follow the AP48906 report layout; this module never calls it.

@@ -4,13 +4,13 @@
 
 """Resolves the integration endpoints used by this tool.
 
-The values live in connectors.ini (deployed next to the package); this module only knows the keys.
+The values live in integrations.ini (deployed next to the package); this module only knows the keys.
 """
 
 import os
 
-_CONFIG_PATH = os.environ.get("INTEGRATIONS_CONFIG", "/etc/corp/connectors.ini")
-_KEYS = ("status_callback", "quota_check",)
+_CONFIG_PATH = os.environ.get("INTEGRATIONS_CONFIG", "/etc/corp/integrations.ini")
+_KEYS = ("archive_drop",)
 
 
 def load():

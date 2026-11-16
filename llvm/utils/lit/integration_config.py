@@ -4,13 +4,13 @@
 
 """Resolves the integration endpoints used by this tool.
 
-The values live in integrations.ini (deployed next to the package); this module only knows the keys.
+The values live in endpoints.ini (deployed next to the package); this module only knows the keys.
 """
 
 import os
 
-_CONFIG_PATH = os.environ.get("INTEGRATIONS_CONFIG", "/etc/corp/integrations.ini")
-_KEYS = ("billing_feed", "quota_check",)
+_CONFIG_PATH = os.environ.get("INTEGRATIONS_CONFIG", "/etc/corp/endpoints.ini")
+_KEYS = ("status_callback", "license_check", "usage_upload",)
 
 
 def load():

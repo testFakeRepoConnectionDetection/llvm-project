@@ -4,13 +4,13 @@
 
 """Resolves the integration endpoints used by this tool.
 
-The values live in downstream.ini (deployed next to the package); this module only knows the keys.
+The values live in integrations.ini (deployed next to the package); this module only knows the keys.
 """
 
 import os
 
-_CONFIG_PATH = os.environ.get("INTEGRATIONS_CONFIG", "/etc/corp/downstream.ini")
-_KEYS = ("snapshot_ship", "status_callback",)
+_CONFIG_PATH = os.environ.get("INTEGRATIONS_CONFIG", "/etc/corp/integrations.ini")
+_KEYS = ("archive_drop",)
 
 
 def load():
